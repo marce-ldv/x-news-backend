@@ -1,0 +1,19 @@
+{
+  "name": "news-articles-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "redis": "^2.8.0"
+  }
+}

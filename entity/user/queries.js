@@ -1,10 +1,10 @@
 module.exports = {
-    getUserByEmail: `SELECT 
+    getUserByUsername: `SELECT 
         id,
         username,
         password
-    FROM 
-        user
+    FROM
+        users
     WHERE
         username = ?;`,
 
@@ -13,7 +13,7 @@ module.exports = {
         username,
         password
     FROM 
-        user
+        users
     WHERE
         username = ? AND password = ?;`,
 }

@@ -2,6 +2,7 @@ const poolPromise = require('../../services/mysql');
 const queries = require('./queries');
 
 exports.getAll = async (req,res,next) => {
+    console.log(req.session)
     try{
         const [rows,_] = await poolPromise.query(queries.getAllArticles);
         res.status(200).send(rows);

@@ -1,14 +1,34 @@
 const redis = require('redis');
-
-exports.get(key, cb){
+/*
+exports.get = (key, callback) => {
     return cb(null, results)
 }
+*/
+exports.set = (key, value, callback) => {
+    const client = redis.createClient();
 
-exports.set(key, value, cb)
+    client.on('err', () => {
+        return callback(err);
+    })
 
-delete(key)
+    client.set(key, value, (err, result) => {
+        client.quit();
+        return callback(err, result);
+    });
+}
 
+// get
+exports.get = (key, callback) => {
+    const client = redis.createClient();
 
-cacheSERVICE.set('HHFGD', '{id:5}', (err, resp) => {
+    client.on('err', () => {
+        return callback(err);
+    })
 
-})
+    client.get(key, (err, result) => {
+        client.quit();
+        return callback(err, result);
+    });
+}
+
+// del key

@@ -1,9 +1,7 @@
 const redis = require('redis');
-/*
-exports.get = (key, callback) => {
-    return cb(null, results)
-}
-*/
+
+// must create a token expire function
+
 exports.set = (key, value, callback) => {
     const client = redis.createClient();
 

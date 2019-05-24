@@ -7,3 +7,10 @@ create table articles(
     description varchar(150),
     constraint pk_id primary key (id)
 );
+
+create table users(
+    id bigint auto_increment,
+    username varchar(50),
+    password varchar(150),
+    constraint pk_id primary key (id)
+);

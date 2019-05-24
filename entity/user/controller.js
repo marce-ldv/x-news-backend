@@ -1,5 +1,5 @@
 const poolPromise = require('../../services/mysql');
-const redis = require('../../services/redis');
+const redisService = require('../../services/redis');
 const queries = require('./queries');
 const { generateToken } = require('../../helpers/utils');
 
@@ -22,12 +22,14 @@ exports.login = async (req,res,next) => {
     const token = generateToken(40);
 
     // set token in redis
-    redis.set(`Token_${token}`, JSON.stringify(rows[0]) ,( err, result ) => {
+    redisService.set(`Token_${token}`, JSON.stringify(rows[0]) ,( err, result ) => {
         console.log(result);
         res.send(token);
     });
 
-    
-    // send response
+    exports.register = async (req,res,next) => {
+
+        res.end();
+    }
 
 }

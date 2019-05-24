@@ -9,7 +9,7 @@ exports.auth = ( req, res ,next ) => {
     }
 
     // redis
-
+    // replace 'Bearer' for ''
     token = token.replace('Bearer ', '')
 
     redisService.get( `Token_${token}`,( err, result ) => {
@@ -22,7 +22,6 @@ exports.auth = ( req, res ,next ) => {
         } catch( e ) {
             console.log(e);
         }
-        
         
         return next();
     } );

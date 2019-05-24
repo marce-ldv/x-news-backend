@@ -1,8 +1,7 @@
 module.exports = {
     getUserByUsername: `SELECT 
         id,
-        username,
-        password
+        username
     FROM
         users
     WHERE
@@ -10,10 +9,11 @@ module.exports = {
 
     getUserByUsernamePassword: `SELECT 
         id,
-        username,
-        password
+        username
     FROM 
         users
     WHERE
         username = ? AND password = ?;`,
+
+    insertUser: `INSERT INTO users SET ?;`
 }

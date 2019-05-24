@@ -1,14 +1,18 @@
 const poolPromise = require('../../services/mysql');
 const redisService = require('../../services/redis');
 const queries = require('./queries');
+const crypto = require('crypto');
 const { generateToken } = require('../../helpers/utils');
 
 exports.login = async (req,res,next) => {
     const { username, password } = req.body;
+    const hash = crypto.createHash('sha256').update(password).digest('hex');
     let rows;
+
     try{
-        resultSet = await poolPromise.query(queries.getUserByUsername, [username,password]);
+        resultSet = await poolPromise.query(queries.getUserByUsernamePassword, [username,hash]);
         rows = resultSet[0];
+            
         if ( ! rows.length ) {
             return res.status(400).send('User not found.');
         }
@@ -26,10 +30,24 @@ exports.login = async (req,res,next) => {
         console.log(result);
         res.send(token);
     });
+}
 
-    exports.register = async (req,res,next) => {
+exports.register = async (req,res,next) => {
+    const { username, password } = req.body;
+    const hash = crypto.createHash('sha256').update(password).digest('hex');
 
-        res.end();
+    try{
+        resultSet = await poolPromise.query(queries.insertUser, [{username,password: hash}]);
+        rows = resultSet[0];
+
+    }catch(e) {
+        console.log(e)
+        return res.status(500).end();
     }
+    
+    return res.end();
+}
 
+exports.logout = async (req,res,next) => {
+    // delete TOKEN in redis
 }

@@ -1,3 +1,8 @@
+/**
+ * generate a random string
+ * @param length
+ * @returns {string|string}
+ */
 exports.generateToken = ( length = 40 ) => {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -6,4 +11,8 @@ exports.generateToken = ( length = 40 ) => {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+}
+
+exports.isNumber = () => {
+    return isNaN();
 }

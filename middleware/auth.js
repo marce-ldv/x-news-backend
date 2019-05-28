@@ -1,5 +1,12 @@
 const redisService = require('../services/redis');
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*}
+ */
 exports.auth = ( req, res ,next ) => {
     let token = req.headers.authorization;
     req.session = null;

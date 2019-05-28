@@ -1,7 +1,12 @@
 const redis = require('redis');
 
 // must create a token expire function
-
+/**
+ * set
+ * @param key
+ * @param value
+ * @param callback
+ */
 exports.set = (key, value, callback) => {
     const client = redis.createClient();
 
@@ -15,7 +20,11 @@ exports.set = (key, value, callback) => {
     });
 }
 
-// get
+/**
+ * get
+ * @param key
+ * @param callback
+ */
 exports.get = (key, callback) => {
     const client = redis.createClient();
 
@@ -29,7 +38,11 @@ exports.get = (key, callback) => {
     });
 }
 
-// delete
+/**
+ * delete
+ * @param key
+ * @param callback
+ */
 exports.delete = (key, callback) => {
     const client = redis.createClient();
 

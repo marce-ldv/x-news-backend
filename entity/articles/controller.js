@@ -1,6 +1,13 @@
 const poolPromise = require('../../services/mysql');
 const queries = require('./queries');
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<void>}
+ */
 exports.getAll = async (req,res,next) => {
     console.log(req.session)
     try{
@@ -12,6 +19,13 @@ exports.getAll = async (req,res,next) => {
     // res.status(200).send();
 }
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<*|*|void>}
+ */
 exports.insert = async (req,res,next) => {
     const body = req.body;
     try{
@@ -25,6 +39,13 @@ exports.insert = async (req,res,next) => {
     }
 }
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<*|*|void>}
+ */
 exports.update = async (req,res,next) => {
     const body = req.body;
     
@@ -40,6 +61,13 @@ exports.update = async (req,res,next) => {
     }
 }
 
+/**
+ * 
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<*|*|void>}
+ */
 exports.delete = async (req,res,next) => {
     const {id} = req.body;
     

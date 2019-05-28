@@ -4,6 +4,13 @@ const queries = require('./queries');
 const crypto = require('crypto');
 const { generateToken } = require('../../helpers/utils');
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<*|*|void>}
+ */
 exports.login = async (req,res,next) => {
     const { username, password } = req.body;
     const hash = crypto.createHash('sha256').update(password).digest('hex');
@@ -32,6 +39,13 @@ exports.login = async (req,res,next) => {
     });
 }
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<*>}
+ */
 exports.register = async (req,res,next) => {
     const { username, password } = req.body;
     const hash = crypto.createHash('sha256').update(password).digest('hex');
@@ -48,6 +62,13 @@ exports.register = async (req,res,next) => {
     return res.end();
 }
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {Promise<void>}
+ */
 exports.logout = async (req,res,next) => {
     const token = req.session.token;
 

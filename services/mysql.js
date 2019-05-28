@@ -1,15 +1,15 @@
 const mysql = require('mysql2');
-const config = require('../config/config');
+// const config = require('../config/config');
 
 /**
  *
  * @type {Pool}
  */
 const conn = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'root',
+    host: 'mysql',
+    user: 'user222',
     port: '3306',
-    password: 'a',
+    password: 'admin',
     database: 'news'
 });
 

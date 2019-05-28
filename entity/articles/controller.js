@@ -56,7 +56,7 @@ exports.update = async (req,res,next) => {
         }
         return res.status(400).send();
     }catch(e) {
-        console.log(e)
+        console.log(e);
         return res.status(500).end();
     }
 }

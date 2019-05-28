@@ -11,8 +11,13 @@ exports.generateToken = ( length = 40 ) => {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-}
+};
 
-exports.isNumber = () => {
-    return isNaN();
-}
+/**
+ *
+ * @param param
+ * @returns {boolean}
+ */
+exports.isNumber = ( param ) => {
+    return isNaN( param );
+};

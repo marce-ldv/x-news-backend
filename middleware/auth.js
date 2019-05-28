@@ -17,7 +17,7 @@ exports.auth = ( req, res ,next ) => {
 
     // redis
     // replace 'Bearer' for ''
-    token = token.replace('Bearer ', '')
+    token = token.replace('Bearer ', '');
 
     redisService.get( `Token_${token}`,( err, result ) => {
         if( err ) res.status(500).send('Server not working. :/');
@@ -33,4 +33,4 @@ exports.auth = ( req, res ,next ) => {
         return next();
     } );
 
-}
+};

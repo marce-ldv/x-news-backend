@@ -29,4 +29,16 @@ exports.get = (key, callback) => {
     });
 }
 
-// del key
+// delete
+exports.delete = (key, callback) => {
+    const client = redis.createClient();
+
+    client.on('err', () => {
+        return callback(err);
+    })
+
+    client.del(key, (err, result) => {
+        client.quit();
+        return callback(err, result);
+    });
+}

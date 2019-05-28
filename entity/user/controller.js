@@ -49,5 +49,11 @@ exports.register = async (req,res,next) => {
 }
 
 exports.logout = async (req,res,next) => {
-    // delete TOKEN in redis
+    const token = req.session.token;
+
+    redisService.delete(`Token_${token}`, ( err ) => {
+        if( err ) return res.status(500).send('Internal Server Error');
+
+        return res.status(200).end();
+    })
 }

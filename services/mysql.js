@@ -6,10 +6,10 @@ const mysql = require('mysql2');
  * @type {Pool}
  */
 const conn = mysql.createPool({
-    host: 'mysql',
-    user: 'user222',
+    host: 'localhost',
+    user: 'root',
     port: '3306',
-    password: 'admin',
+    password: 'a',
     database: 'news'
 });
 

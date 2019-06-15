@@ -19,7 +19,7 @@ exports.login = async (req,res,next) => {
     try{
         resultSet = await poolPromise.query(queries.getUserByUsernamePassword, [username,hash]);
         rows = resultSet[0];
-            
+        
         if ( ! rows.length ) {
             return res.status(400).send('User not found.');
         }
